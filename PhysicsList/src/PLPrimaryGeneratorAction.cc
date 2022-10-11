@@ -1,0 +1,54 @@
+//**************************************************
+// \file PLPrimaryGeneratorAction.cc
+// \brief: Definition of PLPrimaryGeneratorAction 
+//         class
+// \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
+//          @lopezzot
+// \start date: 10 October 2022
+//**************************************************
+
+//Includers from project files
+//
+#include "PLPrimaryGeneratorAction.hh"
+
+//Includers from Geant4
+//
+#include "G4RunManager.hh"
+#include "G4ParticleGun.hh"
+#include "G4ParticleTable.hh"
+#include "G4ParticleDefinition.hh"
+#include "G4SystemOfUnits.hh"
+
+//Constructor
+//
+PLPrimaryGeneratorAction::PLPrimaryGeneratorAction() {
+
+    G4int n_particle = 1;
+    fParticleGun  = new G4ParticleGun(n_particle);
+    
+    //Default beam particle kinematic
+    //
+    G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+    G4String particleName;
+    G4ParticleDefinition* particle
+        = particleTable->FindParticle(particleName="e-");
+    fParticleGun->SetParticleDefinition(particle);
+    fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
+    fParticleGun->SetParticleEnergy(100.*MeV);
+    fParticleGun->SetParticlePosition(G4ThreeVector(0.,0.,-1.0*m));
+
+}
+
+//Destructor
+//
+PLPrimaryGeneratorAction::~PLPrimaryGeneratorAction() { delete fParticleGun; }
+
+//GeneratePrimaries override
+//
+void PLPrimaryGeneratorAction::GeneratePrimaries(G4Event* anEvent) {
+
+    fParticleGun->GeneratePrimaryVertex(anEvent);
+
+}
+
+//**************************************************
