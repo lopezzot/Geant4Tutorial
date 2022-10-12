@@ -90,7 +90,7 @@ void PLUser::ConstructProcess() {
             //add processes to electron
             //plHelper->RegisterProcess(new G4eBremsstrahlung(), particleDef);
             plHelper->RegisterProcess(new G4eIonisation(), particleDef);
-            plHelper->RegisterProcess(msc, particleDef);
+            //plHelper->RegisterProcess(msc, particleDef);
         }
     }
 

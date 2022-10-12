@@ -11,6 +11,7 @@
 #include "PLDetectorConstruction.hh"
 #include "PLActionInitialization.hh"
 #include "PLUser.hh"
+#include "PLModular.hh"
 
 //Includers from Geant4
 //
