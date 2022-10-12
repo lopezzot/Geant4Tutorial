@@ -6,6 +6,9 @@
 // \start date: 11 October 2022
 //**************************************************
 
+#ifndef PLModular_h
+#define PLModular_h 1
+
 //Includers from Geant4
 //
 #include "G4VModularPhysicsList.hh"
@@ -16,7 +19,15 @@ class PLModular : public G4VModularPhysicsList {
         PLModular();
         ~PLModular();
 
+        //Copy constructor and
+        //assignment operator = delete
+        //
+        PLModular(const PLModular&) = delete;
+        PLModular& operator=(const PLModular&) = delete;
+
 };
+
+#endif //PLModular_h 1
 
 //**************************************************
 

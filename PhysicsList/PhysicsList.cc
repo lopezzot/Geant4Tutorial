@@ -16,7 +16,7 @@
 //Includers from Geant4
 //
 #include "G4RunManagerFactory.hh"
-#include "QBBC.hh"
+#include "FTFP_BERT.hh"
 #include "G4UImanager.hh"
 #include "G4UIExecutive.hh"
 #include "G4VisExecutive.hh"
@@ -35,9 +35,20 @@ int main(int argc,char** argv) {
     //
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
-    //Construct the default run manager
+    //Construct the default run manager (SERIAL)
     //
-    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Default);
+    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Serial);
+
+    // Physics list
+    //G4VModularPhysicsList* physicsList = new FTFP_BERT();
+    //physicsList->SetVerboseLevel(1);
+    //runManager->SetUserInitialization(physicsList);
+    //Use a user physics list from G4VUserPhysicsList
+    //
+    //runManager->SetUserInitialization(new PLUser);
+    //Use a physics list from G4VModularPhysicsList
+    //
+    runManager->SetUserInitialization(new PLModular);
 
     //Set mandatory initialization classes
     //
@@ -46,11 +57,6 @@ int main(int argc,char** argv) {
     runManager->SetUserInitialization(new PLDetectorConstruction());
     runManager->SetUserInitialization(new PLActionInitialization());
 
-    // Physics list
-    //G4VModularPhysicsList* physicsList = new QBBC;
-    //physicsList->SetVerboseLevel(1);
-    runManager->SetUserInitialization(new PLUser);
-    
     //Process macro or start UI session
     //
     if ( ! ui ) {

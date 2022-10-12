@@ -9,40 +9,35 @@
 //Includers from project files
 //
 #include "PLModular.hh"
-#include "SystemOfUnits.hh"
+#include "G4SystemOfUnits.hh"
+#include "G4EmStandardPhysics.hh"
+#include "G4HadronPhysicsFTFP_BERT.hh"
 
 //Constructor (physics is registered here)
 //
 PLModular::PLModular()
-         : G4VModularPhysicsList() {
+    : G4VModularPhysicsList() {
     
-    //set default cut value
-    //optional
+    //Set default cut value
+    //(optional)
     //
     defaultCutValue = 0.7*mm;
 
-         
-         
+    //Register pre-defined physics constructors
+    //includes constructions of all EM processes
+    //and related particles
+    //
+    RegisterPhysics(new G4EmStandardPhysics());
+
+    //Hadron physics FTFP+BERT
+    //
+    RegisterPhysics(new G4HadronPhysicsFTFP_BERT());
+     
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//Destructor
+//
+PLModular::~PLModular() {}
 
 
 //**************************************************
