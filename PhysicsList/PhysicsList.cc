@@ -37,7 +37,7 @@ int main(int argc,char** argv) {
 
     //Construct the default run manager (SERIAL)
     //
-    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::Serial);
+    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
 
     // Physics list
     //G4VModularPhysicsList* physicsList = new FTFP_BERT();
@@ -45,10 +45,10 @@ int main(int argc,char** argv) {
     //runManager->SetUserInitialization(physicsList);
     //Use a user physics list from G4VUserPhysicsList
     //
-    //runManager->SetUserInitialization(new PLUser);
+    runManager->SetUserInitialization(new PLUser);
     //Use a physics list from G4VModularPhysicsList
     //
-    runManager->SetUserInitialization(new PLModular);
+    //runManager->SetUserInitialization(new PLModular);
 
     //Set mandatory initialization classes
     //

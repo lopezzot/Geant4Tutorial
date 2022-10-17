@@ -26,6 +26,7 @@
 #include "G4CoulombScattering.hh"
 #include "G4Proton.hh"
 #include "G4eDPWACoulombScatteringModel.hh"
+#include "G4EmParameters.hh"
 
 //Constructor
 //
@@ -75,6 +76,7 @@ void PLUser::ConstructProcess() {
     particleIterator->reset();
     auto msc = new G4CoulombScattering();
     msc->SetEmModel(new G4eDPWACoulombScatteringModel());
+    G4EmParameters::Instance()->SetMscThetaLimit(0.0);
     //iterate over list of particles
     //
     while( (*particleIterator)() ){
@@ -85,12 +87,11 @@ void PLUser::ConstructProcess() {
             //plHelper->RegisterProcess(new G4GammaConversion(), particleDef);
             //plHelper->RegisterProcess(new G4ComptonScattering(), particleDef);
             //plHelper->RegisterProcess(new G4PhotoElectricEffect(), particleDef);
-        } else if (particleDef == G4Electron::Definition()
-                || particleDef == G4Positron::Definition() ) {
+        } else if (particleDef == G4Electron::Definition()) {
             //add processes to electron
             //plHelper->RegisterProcess(new G4eBremsstrahlung(), particleDef);
-            plHelper->RegisterProcess(new G4eIonisation(), particleDef);
-            //plHelper->RegisterProcess(msc, particleDef);
+            //plHelper->RegisterProcess(new G4eIonisation(), particleDef);
+            plHelper->RegisterProcess(msc, particleDef);
         }
     }
 
