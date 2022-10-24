@@ -35,7 +35,7 @@ int main(int argc,char** argv) {
 
     //Construct the default run manager (SERIAL)
     //
-    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
+    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::MT);
 
     //Physics list
     G4VModularPhysicsList* physicsList = new FTFP_BERT();

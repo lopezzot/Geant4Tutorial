@@ -38,13 +38,6 @@ RunAction::RunAction()
     analysisManager->SetVerboseLevel(1);
     analysisManager->SetNtupleMerging(true);
 
-    // Creating ntuple
-    //
-    analysisManager->CreateNtuple("Ntuple", "Ntuple");
-    analysisManager->CreateNtupleDColumn("Energy");
-    analysisManager->CreateNtupleDColumn("Length");
-    analysisManager->FinishNtuple();
-
 }
 
 RunAction::~RunAction() {
@@ -60,6 +53,18 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
     std::string runnumber = std::to_string( run->GetRunID() );
     G4String fileName = "Run" + runnumber + ".root";
     analysisManager->OpenFile(fileName);
+
+    //Create histograms
+    //
+    analysisManager->CreateH1("Edep","Energy deposit",100,0.*MeV,10*GeV);
+    analysisManager->CreateH1("Tlen","Tracks length",100,0.*mm,1*m);
+ 
+    // Creating ntuple
+    //
+    analysisManager->CreateNtuple("Ntuple", "Ntuple");
+    analysisManager->CreateNtupleDColumn("Energy");
+    analysisManager->CreateNtupleDColumn("Length");
+    analysisManager->FinishNtuple();
 
 }
 
