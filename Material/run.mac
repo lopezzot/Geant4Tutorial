@@ -9,3 +9,4 @@
 /run/beamOn 50
 /material/nist/printElement H
 /material/nist/listMaterials
+/material/nist/listMaterials simple

@@ -153,6 +153,14 @@ G4VPhysicalVolume* DetectorConstruction::Construct(){
     //1H, 2H (deuterium) and 3H (tritium) are stable
     //4H, 5H, 6H are unstable.
 
+    //Or to print informations per material/elements.
+    //
+    nist->PrintElement("Al"); //from UI: /material/nist/printElement Al
+    nist->ListMaterials("all"); //from UI: /material/nist/listMaterials
+    //or list materials by category (simple, compund, hep, space, bio, all)
+    //
+    nist->ListMaterials("simple"); //from UI: /material/nist/listMaterilas simple
+
     //World (box)
     //
     G4Box* solidWorld = new G4Box("World", 1.5*m, 1.5*m, 1.5*m);
