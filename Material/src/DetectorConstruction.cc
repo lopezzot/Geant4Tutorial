@@ -128,18 +128,31 @@ G4VPhysicalVolume* DetectorConstruction::Construct(){
     //Example.
     //
 
-    
-
-
-
-
-
-    //Get nist manager and G4_WATER material
+    //Get nist manager (singleton)
     //
     G4NistManager* nist = G4NistManager::Instance();   
+
+    //Get Iron element from NIST
+    //
+    G4int Z_nist;
+    G4Element* elFe = nist->FindOrBuildElement(Z_nist=26);
+    G4cout<<"Built from NIST: "<<elFe->GetName()<<G4endl; //Fe
+
+    //Get Iron material from NIST
+    //
     G4Material* fe = nist->FindOrBuildMaterial("G4_Fe");
-    //G4Material* air = nist->FindOrBuildMaterial("G4_AIR");
+    G4cout<<"Built from NIST: "<<fe->GetName()<<G4endl; //G4_Iron
     
+    //It is also possible to get info for materials/elements
+    //from G4NistManager without creating the material/elemet.
+    //Example
+    //
+    G4cout<<"Natural uranium mass: "<<nist->GetAtomicMassAmu(92)<<" amu"<<'\n'<<
+            "Hydrogen Nb of isotopes: "<<nist->GetNumberOfNistIsotopes(1)<<'\n'<<
+            "Fe material density: "<<nist->GetNominalDensity(26)/(g/cm3)<<" g/cm3"<<G4endl;
+    //1H, 2H (deuterium) and 3H (tritium) are stable
+    //4H, 5H, 6H are unstable.
+
     //World (box)
     //
     G4Box* solidWorld = new G4Box("World", 1.5*m, 1.5*m, 1.5*m);

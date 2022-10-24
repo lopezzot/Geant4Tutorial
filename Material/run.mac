@@ -7,3 +7,5 @@
 /tracking/verbose 0
 #
 /run/beamOn 50
+/material/nist/printElement H
+/material/nist/listMaterials
