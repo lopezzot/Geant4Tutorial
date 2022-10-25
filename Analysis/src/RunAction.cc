@@ -57,7 +57,7 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
     //Create histograms
     //
     analysisManager->CreateH1("Edep","Energy deposit",100,0.*MeV,10*GeV);
-    analysisManager->CreateH1("Tlen","Tracks length",100,0.*mm,1*m);
+    analysisManager->CreateH1("Tlen","Tracks length",100,0.*mm,1*km);
  
     // Creating ntuple
     //

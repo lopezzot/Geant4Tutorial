@@ -12,6 +12,8 @@
 #include "ActionInitialization.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
+#include "EventAction.hh"
+#include "StepAction.hh"
 
 //Constructor
 //
@@ -33,8 +35,13 @@ void ActionInitialization::BuildForMaster() const {
 //
 void ActionInitialization::Build() const {
     
+    auto eventaction = new EventAction();
+
     SetUserAction(new PrimaryGeneratorAction);
     SetUserAction(new RunAction);
+    SetUserAction(eventaction);
+    SetUserAction(new StepAction(eventaction));
+
 }
 
 //**************************************************
