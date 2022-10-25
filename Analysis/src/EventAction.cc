@@ -34,10 +34,19 @@ void EventAction::BeginOfEventAction(const G4Event*){
 
 void EventAction::EndOfEventAction(const G4Event*){
     
-    auto AnalysisManager = G4AnalysisManager::Instance();
-    AnalysisManager->FillH1(0, Edep); //MeV
-    AnalysisManager->FillH1(1, TrackL);//mm
-    G4cout<<TrackL<<" "<<Edep<<G4endl;
+    auto analysisManager = G4AnalysisManager::Instance();
+    
+    //Fill histograms
+    //
+    analysisManager->FillH1(0, Edep); //MeV
+    analysisManager->FillH1(1, TrackL);//mm
+    
+    //Fill ntuples
+    //
+    analysisManager->FillNtupleDColumn(0, Edep);
+    analysisManager->FillNtupleDColumn(1, TrackL);
+    analysisManager->AddNtupleRow(); 
+
 }
 
 //**************************************************

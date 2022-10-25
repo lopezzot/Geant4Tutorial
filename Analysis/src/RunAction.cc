@@ -51,7 +51,9 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
     auto analysisManager = G4AnalysisManager::Instance();
 
     std::string runnumber = std::to_string( run->GetRunID() );
-    G4String fileName = "Run" + runnumber + ".root";
+    G4String fileName = "Run" + runnumber + ".root";  //root format
+    //G4String fileName = "Run" + runnumber + ".xml"; //xml format
+    //G4String fileName = "Run" + runnumber + ".csv"; //csv format
     analysisManager->OpenFile(fileName);
 
     //Create histograms
@@ -71,6 +73,7 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
 void RunAction::EndOfRunAction(const G4Run* /*run*/) {
 
     auto analysisManager = G4AnalysisManager::Instance();
+    //analysisManager->SetH1Plotting(0, true);
     analysisManager->Write();
     analysisManager->CloseFile();
 
