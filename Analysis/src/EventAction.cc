@@ -40,6 +40,7 @@ void EventAction::EndOfEventAction(const G4Event*){
     //
     analysisManager->FillH1(0, Edep); //MeV
     analysisManager->FillH1(1, TrackL);//mm
+    analysisManager->FillH2(0, Edep, TrackL);
     
     //Fill ntuples
     //

@@ -57,7 +57,7 @@ G4VPhysicalVolume* DetectorConstruction::Construct(){
 
     //Box of absorber
     //
-    G4Box* solidBox = new G4Box("Box", 0.5*m, 0.5*m, 0.5*m);
+    G4Box* solidBox = new G4Box("Box", 1.*m, 1.*m, 1.*m);
     G4LogicalVolume* logicBox = new G4LogicalVolume(solidBox, fe, "Box");
                                    new G4PVPlacement(0,               //no rotation
                                                      G4ThreeVector(), //at (0,0,0)
