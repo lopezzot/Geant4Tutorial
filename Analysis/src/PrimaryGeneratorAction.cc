@@ -28,8 +28,14 @@ PrimaryGeneratorAction::PrimaryGeneratorAction() {
     
     //Default beam particle kinematic
     //
+    G4ParticleTable* particleTable = G4ParticleTable::GetParticleTable();
+    G4String particleName;
+    G4ParticleDefinition* particle
+        = particleTable->FindParticle(particleName="e-");
+    fParticleGun->SetParticleDefinition(particle);
+    fParticleGun->SetParticleEnergy(100*MeV);
     fParticleGun->SetParticleMomentumDirection(G4ThreeVector(0.,0.,1.));
-    fParticleGun->SetParticlePosition(G4ThreeVector(0.,0.,0));
+    fParticleGun->SetParticlePosition(G4ThreeVector(0.,0.,0.));
 
 }
 
