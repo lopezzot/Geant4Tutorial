@@ -15,6 +15,7 @@
 #include "G4Run.hh"
 #include "G4RunManager.hh"
 #include "G4SystemOfUnits.hh"
+#include "G4UnitsTable.hh"
 #include "G4Version.hh"
 #if G4VERSION_NUMBER < 1100
 #include "g4root.hh"  // replaced by G4AnalysisManager.h  in G4 v11 and up
@@ -74,7 +75,28 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
 void RunAction::EndOfRunAction(const G4Run* /*run*/) {
 
     auto analysisManager = G4AnalysisManager::Instance();
-    //analysisManager->SetH1Plotting(0, true);
+
+    //Some useful methods from the analysisManager
+    //
+    //Plot histo on file
+    //
+    analysisManager->SetH1Plotting(0, true);
+    //Retrieve information from histos
+    //
+    G4cout << G4endl << " ----> print histograms statistic ";
+    if(isMaster) {
+      G4cout << "for the entire run " << G4endl << G4endl; 
+    }
+    else {
+      G4cout << "for the local thread " << G4endl << G4endl; 
+    }
+    G4cout << " Edep : mean = " 
+       << G4BestUnit(analysisManager->GetH1(0)->mean(), "Energy") 
+       << " rms = " 
+       << G4BestUnit(analysisManager->GetH1(0)->rms(),  "Energy") << G4endl;
+
+    //Write and close file
+    //
     analysisManager->Write();
     analysisManager->CloseFile();
 
