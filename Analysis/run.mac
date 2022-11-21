@@ -6,13 +6,13 @@
 /event/verbose 0
 /tracking/verbose 0
 #
-/gun/particle e-
-/gun/energy 5 GeV
+/gun/particle pi-
+/gun/energy 50 GeV
 #
 /analysis/verbose 1
-/analysis/h1/create Edep Energy 100 0.1 6. GeV
-/analysis/h1/set 0 2 0. 100. GeV
+/analysis/h1/create Edep Energy 100 0. 100. GeV
+/analysis/h1/set 0 100 0. 50. GeV
 /analysis/setHistoDirName histos
 /analysis/setNtupleDirName ntuples
 #
-/run/beamOn 5000
+/run/beamOn 500

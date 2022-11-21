@@ -60,14 +60,20 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
     //Create histograms
     //
     //analysisManager->CreateH1("Edep","Energy deposit",100,0.*MeV,10*GeV); //h1 this one instantiated with UI
-    analysisManager->CreateH1("Tlen","Tracks length",100,0.*mm,1*km); //h1
-    analysisManager->CreateH2("EdepTlen","Edep Tlen",100,0.*MeV,10*GeV,100,0.*mm,1*km); //h2
- 
+    analysisManager->CreateP1("Edep","Energy deposit",100,0.*MeV,50.*GeV, 0., 50.*GeV);
+    analysisManager->CreateH1("Tlen","Tracks length",100,0.*km,5.*km, "km","exp"); //h1
+    analysisManager->CreateH2("EdepTlen","Edep Tlen",100,0.*MeV,50*GeV,100,0.*mm,5*km); //h2
+    analysisManager->CreateH3("EdepTlenEvtID","Edep Tlen EvtID",100,0.*MeV,50.*GeV,100,0.*mm,5.*km,500,0.,500.); 
     // Creating ntuple
     //
     analysisManager->CreateNtuple("Ntuple", "Ntuple");
     analysisManager->CreateNtupleDColumn("Energy");
     analysisManager->CreateNtupleDColumn("Length");
+    analysisManager->FinishNtuple();
+
+    analysisManager->CreateNtuple("Ntuple2", "Ntuple2");
+    analysisManager->CreateNtupleDColumn("Energy2");
+    analysisManager->CreateNtupleDColumn("Length2");
     analysisManager->FinishNtuple();
 
 }
