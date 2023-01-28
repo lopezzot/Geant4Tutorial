@@ -7,6 +7,8 @@
 /tracking/verbose 0
 #
 /run/beamOn 50
+#printout from nist messenger
+#
 /material/nist/printElement H
 /material/nist/listMaterials
 /material/nist/listMaterials simple
