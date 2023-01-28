@@ -3,6 +3,7 @@ This is a messy collection of code examples and lessons for Geant4 educational p
 
 ## Code examples
 
+- [Material](Material) - This example shows how to define materials in Geant4 and retrieve materials information. It illustrates the usage of the `G4NistManager` as well.
 - [TrackInformation](TrackInformation/) - This example shows how to add custom information to tracks. It uses the `G4VUserTrackInformation` class and the track `SetUserInformation` method. Specifically, it adds to each track the parent PDGID and illustrates how $\mu^-$ produced in hadronic showers come from $\pi^-$, $K^-$ and $K_L^0$ decays.
 - [FTFTunings](FTFTunings/) - This example shows how to use alternative sets of parameters for the FTF model as introduced in Geant4-11.1.0.
 
