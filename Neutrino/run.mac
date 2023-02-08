@@ -1,0 +1,13 @@
+/run/initialize
+/run/printProgress 1
+#
+/control/verbose 0
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 0
+#
+/gun/particle nu_e
+/gun/energy 1 GeV
+/run/beamOn 10
+/particle/select nu_e
+/particle/process/dump
