@@ -32,8 +32,8 @@ file(GLOB headers ${PROJECT_SOURCE_DIR}/include/*.hh)
 #----------------------------------------------------------------------------
 # Add the executable, and link it to the Geant4 libraries
 #
-add_executable(example MWE.cc ${sources} ${headers})
-target_link_libraries(example ${Geant4_LIBRARIES})
+add_executable(MWE MWE.cc ${sources} ${headers})
+target_link_libraries(MWE ${Geant4_LIBRARIES})
 
 #----------------------------------------------------------------------------
 # Copy all scripts to the build directory, i.e. the directory in which we
@@ -57,4 +57,4 @@ endforeach()
 #----------------------------------------------------------------------------
 # Install the executable to 'bin' directory under CMAKE_INSTALL_PREFIX
 #
-install(TARGETS example DESTINATION bin)
+install(TARGETS MWE DESTINATION bin)
