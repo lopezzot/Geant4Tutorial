@@ -8,6 +8,7 @@ This is a messy collection of code examples and lessons for Geant4 educational p
 ### Advanced examples
 - [TrackInformation](https://github.com/lopezzot/Geant4Tutorial/tree/main/TrackInformation) - This example shows how to add custom information to tracks. It uses the `G4VUserTrackInformation` class and the track `SetUserInformation` method. Specifically, it adds to each track the parent PDGID and illustrates how $\mu^-$ produced in hadronic showers come from $\pi^-$, $K^-$ and $K_L^0$ decays.
 - [FTFTunings](https://github.com/lopezzot/Geant4Tutorial/tree/main/FTFTunings) - This example shows how to use alternative sets of parameters for the FTF model as introduced in Geant4-11.1.0.
+- [HadronicProcessStore](https://github.com/lopezzot/Geant4Tutorial/tree/main/HadronicProcessStore) - This example shows how to use the `G4HadronicProcessStore` to retrieve total hadronic cross-sections.
 
 ## Lessons (slides)
 All slides are available [here](https://cernbox.cern.ch/s/WnpzvYfihfOUxPO).
