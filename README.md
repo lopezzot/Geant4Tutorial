@@ -19,5 +19,5 @@ All slides are available [here](https://cernbox.cern.ch/s/WnpzvYfihfOUxPO).
 - :open_file_folder: <em>Materials.pdf</em> - Topics: materials in Geant4, definition of materials, the the G4NistManager.
 - :open_file_folder: <em>Analysis.pdf</em> - Topics: data persistence in Geant4, g4analysis, the G4AnalysisManager.
 - :open_file_folder: <em>HadronicPhysicsI.pdf</em> - Topics: final state models and cross sections, hadronic physics framework, capture at rest, neutron physics, hadronic physics in reference physics lists.
-- :open_file_folder: <em>HadronicPhysicsII.pdf</em> - Topics: high-precision neutron treatment (NEUTRON_HP), nuclides and radioactive decay, nucleon-nucleon, lepto-nuclear and gamma-nuclear interactions, hadronic physics biasing, hadronic physics validation.
+- :open_file_folder: <em>HadronicPhysicsII.pdf</em> - Topics: high-precision neutron treatment (NEUTRON_HP), nuclides and radioactive decay, nucleus-nucleus, lepto-nuclear and gamma-nuclear interactions, hadronic physics biasing, hadronic physics validation.
 - :open_file_folder: <em>ChoosingPhysicsList.pdf</em> - Topics: recap of physics lists (reference physics list, modular physics list, naming conventions, using reference physics lists), some reference physics lists, cuts, validation and geant-val with examples.
