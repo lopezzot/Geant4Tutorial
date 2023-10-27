@@ -1,0 +1,16 @@
+/run/initialize
+/run/printProgress 1
+#
+/control/verbose 0
+/run/verbose 0
+/event/verbose 0
+/tracking/verbose 2
+#change min lifetime of nuclides to be created
+#and transported by Geant4
+#
+/process/had/rdm/hlThreshold 10. ps
+#simulate 100 decay per event instead of 1
+#
+/process/had/rdm/splitNuclei 100
+#
+/run/beamOn 1
