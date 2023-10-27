@@ -11,6 +11,7 @@ This is a messy collection of code examples and lessons for Geant4 educational p
 - [HadronicProcessStore](https://github.com/lopezzot/Geant4Tutorial/tree/main/HadronicProcessStore) - This example shows how to use the `G4HadronicProcessStore` to retrieve total hadronic cross-sections.
 - [RadioactiveDecay](https://github.com/lopezzot/Geant4Tutorial/tree/main/RadioactiveDecay) - This example shows how to register the `G4RadioactiveDecayPhysics` constructor and simulate a radioactive source of cobalt 60 at rest.
 - [Radioactivation](https://github.com/lopezzot/Geant4Tutorial/tree/main/Radioactivation) - This example shows how to register the `G4Radioactivation` process to use radioactive decay process in bias mode. It shows also how to bias radioactive decay with UI command in the macro card.
+- [HadronicPhysicsBiasing](https://github.com/lopezzot/Geant4Tutorial/tree/main/HadronicPhysicsBiasing) - This example shows how to bias hadronic physics cross-sections using the built-in hadronic method `BiasCrossSectionByFactor()`. The muon lepto-nuclear process is used as an example.
 
 ## Lessons (slides)
 All slides are available [here](https://cernbox.cern.ch/s/WnpzvYfihfOUxPO).
