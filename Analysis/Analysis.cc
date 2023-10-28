@@ -33,9 +33,9 @@ int main(int argc,char** argv) {
     //
     G4UImanager* UImanager = G4UImanager::GetUIpointer();
 
-    //Construct the default run manager (SERIAL)
+    //Construct the default run manager
     //
-    auto* runManager = G4RunManagerFactory::CreateRunManager(G4RunManagerType::MT);
+    auto* runManager = G4RunManagerFactory::CreateRunManager();
 
     //Physics list
     G4VModularPhysicsList* physicsList = new FTFP_BERT();
