@@ -41,13 +41,6 @@ int main(int argc, char **argv) {
   auto *runManager =
       G4RunManagerFactory::CreateRunManager(G4RunManagerType::SerialOnly);
 
-  // Physics list
-  // Select PL via PLFactory
-  //
-  // G4PhysListFactory PLFactory;
-  // const G4String PLName = "QGSP_BIC_HP_EMY";
-  // G4VModularPhysicsList *PL = PLFactory.GetReferencePhysList(PLName);
-  // runManager->SetUserInitialization(PL);
   // Or use FTFP_BERT PL
   //
   G4VModularPhysicsList *physicsList = new FTFP_BERT();
