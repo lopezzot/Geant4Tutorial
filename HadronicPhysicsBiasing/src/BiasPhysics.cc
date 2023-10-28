@@ -12,21 +12,10 @@
 
 // Includers from Geant4
 //
-#include "G4DeexPrecoParameters.hh"
-#include "G4EmParameters.hh"
-#include "G4GenericIon.hh"
 #include "G4HadronicProcess.hh"
-#include "G4LossTableManager.hh"
 #include "G4MuonMinus.hh"
-#include "G4NuclearLevelData.hh"
-#include "G4NuclideTable.hh"
-#include "G4PhysicsListHelper.hh"
 #include "G4ProcessManager.hh"
 #include "G4ProcessVector.hh"
-#include "G4Radioactivation.hh"
-#include "G4SystemOfUnits.hh"
-#include "G4UAtomicDeexcitation.hh"
-#include "G4VAtomDeexcitation.hh"
 
 BiasPhysics::BiasPhysics() : G4VPhysicsConstructor() {}
 
