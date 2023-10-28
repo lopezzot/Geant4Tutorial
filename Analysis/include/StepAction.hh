@@ -1,32 +1,31 @@
 //**************************************************
 // \file StepAction.hh
 // \brief: Declaration of StepAction class
-// \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
+// \author: Lorenzo Pezzotti (CERN EP-SFT-sim)
 //          @lopezzot
 // \start date: 25 October 2022
 //**************************************************
 
 #ifndef StepAction_h
-#define StepAction_h 1
+#  define StepAction_h 1
 
-//Includers from Geant4
+// Includers from Geant4
 //
-#include "G4UserSteppingAction.hh"
+#  include "G4UserSteppingAction.hh"
 class EventAction;
 
-class StepAction : public G4UserSteppingAction {
+class StepAction : public G4UserSteppingAction
+{
+  public:
+    StepAction(EventAction* evtactn);
+    virtual ~StepAction();
 
-    public:
-        StepAction(EventAction* evtactn);
-        virtual ~StepAction();
+    virtual void UserSteppingAction(const G4Step* step);
 
-        virtual void UserSteppingAction( const G4Step* step );
-
-    private:
-        EventAction* fEventAction;
-
+  private:
+    EventAction* fEventAction;
 };
 
-#endif //StepAction_h 1
+#endif  // StepAction_h 1
 
 //**************************************************

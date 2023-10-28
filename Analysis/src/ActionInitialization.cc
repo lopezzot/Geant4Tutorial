@@ -1,47 +1,46 @@
 //**************************************************
 // \file ActionInitialization.cc
-// \brief: Definition of ActionInitialization 
+// \brief: Definition of ActionInitialization
 //         class
-// \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
+// \author: Lorenzo Pezzotti (CERN EP-SFT-sim)
 //          @lopezzot
 // \start date: 24 October 2022
 //**************************************************
 
-//Includers from project files
+// Includers from project files
 //
 #include "ActionInitialization.hh"
+
+#include "EventAction.hh"
 #include "PrimaryGeneratorAction.hh"
 #include "RunAction.hh"
-#include "EventAction.hh"
 #include "StepAction.hh"
 
-//Constructor
+// Constructor
 //
 ActionInitialization::ActionInitialization() {}
 
-//Destructor
+// Destructor
 //
 ActionInitialization::~ActionInitialization() {}
 
-//BuildForMaster method
+// BuildForMaster method
 //
-void ActionInitialization::BuildForMaster() const {
-
-    SetUserAction(new RunAction);
-
+void ActionInitialization::BuildForMaster() const
+{
+  SetUserAction(new RunAction);
 }
 
-//Build method
+// Build method
 //
-void ActionInitialization::Build() const {
-    
-    auto eventaction = new EventAction();
+void ActionInitialization::Build() const
+{
+  auto eventaction = new EventAction();
 
-    SetUserAction(new PrimaryGeneratorAction);
-    SetUserAction(new RunAction);
-    SetUserAction(eventaction);
-    SetUserAction(new StepAction(eventaction));
-
+  SetUserAction(new PrimaryGeneratorAction);
+  SetUserAction(new RunAction);
+  SetUserAction(eventaction);
+  SetUserAction(new StepAction(eventaction));
 }
 
 //**************************************************
