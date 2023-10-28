@@ -1,5 +1,5 @@
 //**************************************************
-// \file BRunAction.cc
+// \file RunAction.cc
 // \brief: implementation of RunAction class
 // \author: Lorenzo Pezzotti (CERN EP-SFT-sim) 
 //          @lopezzot
@@ -30,12 +30,6 @@ RunAction::RunAction()
     //
     auto analysisManager = G4AnalysisManager::Instance();
 
-    //Print useful information
-    //
-    if (IsMaster()) {
-        G4cout << "Using " << analysisManager->GetType() << G4endl;
-    }
-
     analysisManager->SetVerboseLevel(1);
     analysisManager->SetNtupleMerging(true);
 
@@ -57,13 +51,21 @@ void RunAction::BeginOfRunAction(const G4Run* run) {
     //G4String fileName = "Run" + runnumber + ".csv"; //csv format
     analysisManager->OpenFile(fileName);
 
+    //Print useful information
+    //
+    if (IsMaster()) {
+        G4cout << "Using " << analysisManager->GetType() << G4endl;
+        //This might be buddy as not string is returned by GetType()
+    }
+
     //Create histograms
     //
-    //analysisManager->CreateH1("Edep","Energy deposit",100,0.*MeV,10*GeV); //h1 this one instantiated with UI
-    analysisManager->CreateP1("Edep","Energy deposit",100,0.*MeV,50.*GeV, 0., 50.*GeV);
+    //analysisManager->CreateH1("Edep","Energy deposit",100,0.*MeV,10*GeV); //h1 -> this one instantiated with UI
+    analysisManager->CreateP1("EdepProfile","Energy deposit",1000,0.*MeV,50.*GeV, 0.,50.*GeV); //p1
     analysisManager->CreateH1("Tlen","Tracks length",100,0.*km,5.*km, "km","exp"); //h1
     analysisManager->CreateH2("EdepTlen","Edep Tlen",100,0.*MeV,50*GeV,100,0.*mm,5*km); //h2
-    analysisManager->CreateH3("EdepTlenEvtID","Edep Tlen EvtID",100,0.*MeV,50.*GeV,100,0.*mm,5.*km,500,0.,500.); 
+    analysisManager->CreateH3("EdepTlenEvtID","Edep Tlen EvtID",100,0.*MeV,50.*GeV,100,0.*mm,5.*km,500,0.,500.); //h3
+
     // Creating ntuple
     //
     analysisManager->CreateNtuple("Ntuple", "Ntuple");
@@ -99,7 +101,7 @@ void RunAction::EndOfRunAction(const G4Run* /*run*/) {
     G4cout << " Edep : mean = " 
        << G4BestUnit(analysisManager->GetH1(0)->mean(), "Energy") 
        << " rms = " 
-       << G4BestUnit(analysisManager->GetH1(0)->rms(),  "Energy") << G4endl;
+       << G4BestUnit(analysisManager->GetH1(0)->rms(), "Energy") << G4endl;
 
     //Write and close file
     //

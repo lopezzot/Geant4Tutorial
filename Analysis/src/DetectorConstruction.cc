@@ -33,7 +33,6 @@ DetectorConstruction::~DetectorConstruction(){}
 G4VPhysicalVolume* DetectorConstruction::Construct(){
 
     //Create a simple box of absorber in air
-    //geometry is not relevant for PhysicsList tutorial
     //
 
     //Get nist manager and G4_WATER material
