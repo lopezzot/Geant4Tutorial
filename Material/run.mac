@@ -1,5 +1,5 @@
-/process/verbose/em 0
-/process/verbose/had 0
+/process/em/verbose 0
+/process/had/verbose 0
 /run/initialize
 /run/printProgress 1
 #
