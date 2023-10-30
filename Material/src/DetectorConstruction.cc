@@ -33,22 +33,22 @@ DetectorConstruction::~DetectorConstruction() {}
 G4VPhysicalVolume *DetectorConstruction::Construct() {
 
   // The purpose of this example is to show
-  // how to build materials in Geant4.
+  // how to build materials in Geant4
   //
 
-  // If a material is made of a single elements
+  // If a material is made of a single element (Fe, Pb, Cu, ...)
   // it can be defined in a straightforward way.
-  // Example for pure iron material.
+  // Example for pure iron material
   //
   G4int atomic_number = 26;
   G4double density = 7.87 * g / cm3;
   G4double atomic_weight = 55.845 * g / mole;
-  // G4double atomic_weight = 27.845 * g / mole; // to show strange thing below
   G4Material *pureIron =
       new G4Material("pureIron", atomic_number, atomic_weight, density);
 
   // Here are some getters from G4Material
   //
+  G4cout<<"--------------------------------------------"<<G4endl;
   G4cout << pureIron->GetName() << "->" << '\n'
          << "density: " << pureIron->GetDensity() / (g / cm3) << " g/cm3"
          << '\n'
@@ -56,40 +56,46 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
          << "radiation length: " << pureIron->GetRadlen() << " mm" << '\n'
          << "nucl. int. length: " << pureIron->GetNuclearInterLength() << " mm"
          << '\n'
-         << "e- per volume: " << pureIron->GetTotNbOfElectPerVolume() << " mm3"
+         << "e- per volume: " << pureIron->GetTotNbOfElectPerVolume() << " e-/mm3"
          << G4endl;
 
-  // Cheking strange thing about G4 materials, it seems that GetA()
+  /* NOT PART OF CODE EXAMPLE, JUST A REMINDER */
+  /*// Cheking strange thing about G4 materials, it seems that GetA()
   // method returns different values if material is created as
   // single element material or by adding elements to it
   //
   // This shows that GetA() returns value different from atomic_weight
   // passed as argument, that is because it creates element with NISTManager
   //
+  G4cout <<"-------------------"<<G4endl;
   G4cout << pureIron->GetName()
          << " # isotopes: " << pureIron->GetElement(0)->GetNumberOfIsotopes()
          << G4endl;
   G4cout << pureIron->GetA() / g * mole << " A g/mole"
-         << pureIron->GetElement(0)->GetA() / g * mole << " A element g/mole"
+         << G4endl;
+  G4cout << pureIron->GetElement(0)->GetA() / g * mole << " A element g/mole"
          << G4endl;
   // Instead if you create an element and add a single element to a material
   // it does not change the atomic_weight, i.e. GetA() returns value passed
-  // by user.
+  // by user
   //
+  G4cout <<"------------------"<<G4endl;
   auto feelement = new G4Element("iron", "Fe", atomic_number, atomic_weight);
   G4cout << feelement->GetName()
-         << " # isotopes2: " << feelement->GetNumberOfIsotopes() << G4endl;
+         << " custom feelement # isotopes: " << feelement->GetNumberOfIsotopes() << G4endl;
   G4cout << feelement->GetA() / g * mole << " A g/mole" << G4endl;
   auto fematerial = new G4Material("fematerial", density, 1);
   fematerial->AddElement(feelement, 1);
   G4cout << fematerial->GetName() << G4endl;
   G4cout << fematerial->GetA() / g * mole << " A g/mole "
-         << fematerial->GetElement(0)->GetA() / g * mole << G4endl;
-  // End of checking strange thing about material
+         << G4endl;
+  G4cout << fematerial->GetElement(0)->GetA() / g * mole << G4endl;
+  G4cout <<"------------------"<<G4endl;
+  // End of checking strange thing about material */
 
   // If the building block of a material
   // is a molecule (istead of a single element)
-  // one has to Add each element to the material.
+  // one has to Add each Element to the material.
   // Example for water material.
   //
   G4int ncomp = 2; // water is made of hydrogen and oxigen
@@ -97,6 +103,7 @@ G4VPhysicalVolume *DetectorConstruction::Construct() {
   G4Material *H2O = new G4Material("Water", water_density, ncomp);
   G4double a = 1.01 * g / mole;
   G4int z = 1;
+  G4cout<<"--------------------------------------------"<<G4endl;
   G4Element *elH = new G4Element("Hydrogen", "H", z, a);
   G4cout << elH->GetName() << " # isotopes: " << elH->GetNumberOfIsotopes()
          << G4endl;
