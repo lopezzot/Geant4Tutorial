@@ -1,3 +1,5 @@
+/process/verbose/em 0
+/process/verbose/had 0
 /run/initialize
 /run/printProgress 1
 #
@@ -6,7 +8,7 @@
 /event/verbose 0
 /tracking/verbose 0
 #
-/run/beamOn 50
+/run/beamOn 1
 #printout from nist messenger
 #
 /material/nist/printElement H
