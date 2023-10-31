@@ -18,7 +18,7 @@ This is a messy collection of code examples and lessons for Geant4 educational p
 All slides are available [here](https://cernbox.cern.ch/s/WnpzvYfihfOUxPO).
 
 - :open_file_folder: <em>ExamplesDocumentation.pdf</em> - Topics: Geant4 installation, building basic examples, overview of extended and advanced examples, official documentation and user support.
-- :open_file_folder: <em>Materials.pdf</em> - Topics: materials in Geant4, definition of materials, the the G4NistManager.
+- :open_file_folder: <em>Material.pdf</em> - Topics: materials in Geant4, definition of materials, the the G4NistManager.
 - :open_file_folder: <em>Analysis.pdf</em> - Topics: data persistence in Geant4, g4analysis, the G4AnalysisManager.
 - :open_file_folder: <em>HadronicPhysicsI.pdf</em> - Topics: final state models and cross sections, hadronic physics framework, capture at rest, neutron physics, hadronic physics in reference physics lists.
 - :open_file_folder: <em>HadronicPhysicsII.pdf</em> - Topics: high-precision neutron treatment (NEUTRON_HP), nuclides and radioactive decay, nucleus-nucleus, lepto-nuclear and gamma-nuclear interactions, hadronic physics biasing, hadronic physics validation.
