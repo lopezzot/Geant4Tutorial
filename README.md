@@ -15,7 +15,7 @@ This is a messy collection of code examples and lessons for Geant4 educational p
 - [HadronicPhysicsBiasing](https://github.com/lopezzot/Geant4Tutorial/tree/main/HadronicPhysicsBiasing) - This example shows how to bias hadronic physics cross-sections using the built-in hadronic method `BiasCrossSectionByFactor()`. The muon lepto-nuclear process is used as an example.
 - [ApplyXSFactor](https://github.com/lopezzot/Geant4Tutorial/tree/main/ApplyFactorXS) - This example shows how to scale hadronic cross-sections using the `SetXSFactor` methods of `G4HadronicParameters` with a maximum absolute scaling allowed of 20%.
 ## Lessons (slides)
-All slides are available [here](https://cernbox.cern.ch/s/WnpzvYfihfOUxPO).
+All slides are available in the `slides` directory.
 
 - :open_file_folder: <em>ExamplesDocumentation.pdf</em> - Topics: Geant4 installation, building basic examples, overview of extended and advanced examples, official documentation and user support.
 - :open_file_folder: <em>Material.pdf</em> - Topics: materials in Geant4, definition of materials, the the G4NistManager.
